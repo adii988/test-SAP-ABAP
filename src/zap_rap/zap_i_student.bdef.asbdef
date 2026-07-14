@@ -1,0 +1,32 @@
+managed implementation in class zbp_ap_i_student unique;
+strict;
+
+define behavior for ZAP_I_STUDENT alias Student
+persistent table zap_student
+lock master
+authorization master ( instance )
+
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( numbering : managed,readonly ) ID;
+//  action (features : instance) setAdmitted result [1] $self;
+  action setAdmitted result [1] $self;
+
+  mapping for zap_student
+  {
+                ID = id;
+         Firstname = firstname;
+          Lastname = lastname;
+               Age = age;
+            Course = course;
+    Courseduration = courseduration;
+            Status = status;
+            Gender = gender;
+               DOB = dob;
+     Lastchangedat = lastchangedat;
+Locallastchangedat = locallastchangedat;
+}
+}

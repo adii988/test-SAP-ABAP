@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Employee'
+define service ZAP_SD_EMPLOYEES {
+  expose ZC_AP_I_EMPLOYEES;
+}

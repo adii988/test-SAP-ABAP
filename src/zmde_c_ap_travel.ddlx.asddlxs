@@ -1,0 +1,113 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName      : 'Travel',
+  typeNamePlural: 'Travels',
+  title         : { type: #STANDARD, value: 'TravelId' },
+  description   : { type: #STANDARD, value: 'Description' }
+}
+@UI.presentationVariant: [{
+  sortOrder     : [{ by: 'TravelId', direction: #DESC }],
+  visualizations: [{ type: #AS_LINEITEM }]
+}]
+
+annotate entity ZC_AP_P_Travel with
+{
+
+  @UI.facet: [
+    {
+      id      : 'GeneralInfo',
+      purpose : #STANDARD,
+      type    : #IDENTIFICATION_REFERENCE,
+      label   : 'General Information',
+      position: 10
+    },
+     { id:            'TravelItem',
+       purpose:       #STANDARD,
+       type:          #LINEITEM_REFERENCE,
+       targetElement: '_Item',
+       label:         'Travel Items',
+       position:      20 },
+    {
+      id             : 'PriceInfo',
+      purpose        : #STANDARD,
+      type           : #FIELDGROUP_REFERENCE,
+      targetQualifier: 'PriceInfo',
+      label          : 'Price Information',
+      position       : 20
+    }
+  ]
+
+  @UI.lineItem      : [{ position: 10, importance: #HIGH, label: 'Travel ID' }]
+  @UI.identification: [{ position: 10, label: 'Travel ID' }]
+  @UI.selectionField: [{ position: 10 }]
+  TravelId;
+
+  @UI.lineItem      : [{ position: 20, importance: #HIGH, label: 'Agency ID' }]
+  @UI.identification: [{ position: 20, label: 'Agency ID' }]
+  @UI.selectionField: [{ position: 20 }]
+  AgencyId;
+
+  @UI.lineItem      : [{ position: 30, importance: #HIGH, label: 'Customer ID' }]
+  @UI.identification: [{ position: 30, label: 'Customer ID' }]
+  @UI.selectionField: [{ position: 30 }]
+  CustomerId;
+
+  @UI.lineItem      : [{ position: 40, importance: #MEDIUM, label: 'Begin Date' }]
+  @UI.identification: [{ position: 40, label: 'Begin Date' }]
+  @UI.selectionField: [{ position: 40 }]
+  BeginDate;
+
+  @UI.lineItem      : [{ position: 50, importance: #MEDIUM, label: 'End Date' }]
+  @UI.identification: [{ position: 50, label: 'End Date' }]
+  @UI.selectionField: [{ position: 50 }]
+  EndDate;
+
+  @UI.lineItem      : [{ position: 55, importance: #LOW, label: 'Duration (days)' }]
+  @UI.identification: [{ position: 65, label: 'Duration (days)' }]
+  Duration;
+
+  @UI.lineItem      : [{ position: 60, importance: #LOW, label: 'Currency' }]
+  @UI.identification: [{ position: 60, label: 'Currency' }]
+  @UI.fieldGroup    : [{ qualifier: 'PriceInfo', position: 10, label: 'Currency' }]
+  CurrencyCode;
+
+  @UI.lineItem      : [{ position: 70, importance: #MEDIUM, label: 'Booking Fee' }]
+  @UI.identification: [{ position: 70, label: 'Booking Fee' }]
+  @UI.fieldGroup    : [{ qualifier: 'PriceInfo', position: 20, label: 'Booking Fee' }]
+  BookingFee;
+
+  @UI.lineItem      : [{ position: 80, importance: #HIGH, label: 'Total Price' }]
+  @UI.identification: [{ position: 80, label: 'Total Price' }]
+  @UI.fieldGroup    : [{ qualifier: 'PriceInfo', position: 30, label: 'Total Price' }]
+  TotalPrice;
+
+  @UI.lineItem      : [{ position: 90, importance: #LOW, label: 'Description' }]
+  @UI.identification: [{ position: 90, label: 'Description'
+                         }]
+  Description;
+
+  @UI.lineItem      : [{
+                       position   : 100,
+                       //criticality: 'StatusCriticality',
+                       label      : 'Status'
+                     },
+                     {
+                       type      : #FOR_ACTION,
+                       dataAction: 'cancel_travel',
+                       label     : 'Cancel the Travel'
+                     }]
+  @UI.identification: [{ position: 100 },
+                        {
+                          type      : #FOR_ACTION,
+                          dataAction: 'cancel_travel',
+                          label     : 'Cancel the Travel'
+                        }]
+  @UI.selectionField: [{ position: 60 }]
+  @UI.fieldGroup: [{ qualifier: 'TravelDetails' }]
+  @EndUserText.label: 'Status'
+  Status;
+
+  //  @UI.hidden: true
+
+
+}

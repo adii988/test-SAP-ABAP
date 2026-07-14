@@ -1,0 +1,45 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_AP_P_TravelItem
+    with
+{
+    @UI.hidden: true
+    ItemUuid;
+
+    @UI.identification: [{ position: 10 }]
+    @UI.lineItem:       [{ position: 10 }]
+    @UI.selectionField: [{ position: 10 }]
+    AgencyId;
+
+    @UI.identification: [{ position: 20 }]
+    @UI.lineItem:       [{ position: 20 }]
+    TravelId;
+
+    @UI.identification: [{ position: 30, label: 'Airline' }]
+    @UI.lineItem:       [{ position: 30, label: 'Airline' }]
+    @UI.selectionField: [{ position: 20 }]
+    CarrierId;
+
+    @UI.identification: [{ position: 40, label: 'Connection' }]
+    @UI.lineItem:       [{ position: 40, label: 'Connection' }]
+    ConnectionId;
+
+    @UI.identification: [{ position: 50, label: 'Flight Date' }]
+    @UI.lineItem:       [{ position: 50, label: 'Flight Date' }]
+    @UI.selectionField: [{ position: 30 }]
+    FlightDate;
+
+    @UI.identification: [{ position: 60, label: 'Booking ID' }]
+    @UI.lineItem:       [{ position: 60, label: 'Booking ID' }]
+    BookingId;
+
+    @UI.identification: [{ position: 70, label: 'First Name' }]
+    @UI.lineItem:       [{ position: 70, label: 'First Name' }]
+    PassengerFirstName;
+
+    @UI.identification: [{ position: 80, label: 'Last Name' }]
+    @UI.lineItem:       [{ position: 80, label: 'Last Name' }]
+    PassengerLastName;
+
+    @UI.identification: [{ position: 90, label: 'Last Changed At' }]
+    Lastchangedat;
+}

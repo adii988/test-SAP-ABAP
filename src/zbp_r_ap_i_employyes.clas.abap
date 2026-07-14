@@ -1,0 +1,5 @@
+CLASS zbp_r_ap_i_employyes DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_ap_i_employyes.
+ENDCLASS.
+
+CLASS zbp_r_ap_i_employyes IMPLEMENTATION.
+ENDCLASS.

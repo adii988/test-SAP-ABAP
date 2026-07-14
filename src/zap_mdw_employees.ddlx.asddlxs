@@ -1,0 +1,88 @@
+@Metadata.layer: #CORE
+
+@UI: {
+    headerInfo: {
+        typeName: 'Employee',
+        typeNamePlural: 'Employees',
+        title: { type: #STANDARD, value: 'Empid' },
+        description: { type: #STANDARD, value: 'Fname' }
+    }
+}
+
+@UI.presentationVariant: [{ sortOrder: [{ by: 'Empid', direction: #ASC }] }]
+
+annotate entity ZC_AP_I_EMPLOYEES with
+{
+  @UI.facet: [
+      {
+          id:              'Employee',
+          purpose:         #STANDARD,
+          type:            #IDENTIFICATION_REFERENCE,
+          label:           'Employee Details',
+          position:        10
+      }
+  ]
+
+  @UI.hidden: true
+  EmpUuid;
+
+  @UI: {
+      lineItem:       [{ position: 10, importance: #HIGH }],
+      identification: [{ position: 10 }],
+      selectionField: [{ position: 10 }]
+  }
+  @EndUserText.label: 'Employee ID'
+  Empid;
+
+  @UI: {
+      lineItem:       [{ position: 20, importance: #HIGH }],
+      identification: [{ position: 20 }],
+      selectionField: [{ position: 20 }]
+  }
+  @EndUserText.label: 'First Name'
+  Fname;
+
+  @UI: {
+      lineItem:       [{ position: 30, importance: #HIGH }],
+      identification: [{ position: 30 }],
+      selectionField: [{ position: 30 }]
+  }
+  @EndUserText.label: 'Last Name'
+  Lname;
+
+  @UI.hidden: true
+  Currencycode;
+
+  @UI: {
+      lineItem:       [{ position: 40, importance: #HIGH }],
+      identification: [{ position: 40 }]
+  }
+  @EndUserText.label: 'Salary'
+  Salary;
+
+  @UI: {
+      lineItem:       [{ position: 50 }],
+      identification: [{ position: 50 }]
+  }
+  @EndUserText.label: 'Date of Birth'
+  Dob;
+
+  @UI: {
+      lineItem:       [{ position: 60 }],
+      identification: [{ position: 60 }]
+  }
+  @EndUserText.label: 'Age'
+  Age;
+
+  @UI: {
+   lineItem: [{ position: 70 }],
+   identification: [{ position: 70 }]
+  }
+  Changedby;
+
+  @UI: {
+      lineItem: [{ position: 80 }],
+      identification: [{ position: 80 }]
+  }
+  Lastchangedat;
+}
